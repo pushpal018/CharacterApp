@@ -7,8 +7,6 @@ import com.pushpal.task_two.feature.characters_list.model.CharactersModel
 import com.pushpal.task_two.feature.characters_list.model.CharactersModelImpl
 import com.pushpal.task_two.feature.characters_list.model.CharactersResponse
 import com.pushpal.task_two.feature.characters_list.model.ModelCallback
-import java.text.SimpleDateFormat
-import java.util.Locale
 
 
 class CharactersViewModel(private val charactersModel : CharactersModel) : ViewModel() {
@@ -58,12 +56,17 @@ class CharactersViewModel(private val charactersModel : CharactersModel) : ViewM
             val charactersUiModel = it.name?.let { it1 ->
                 it.dateOfBirth?.let { it2 ->
                     CharactersItemUiModel(
-                        firstName = it1,
-                        lastName = it.name!!,
+                        name = it.name!!,
+                        gender = it.gender,
+                        house = it.house,
                         dateOfBirth = it2,
+                        eyeColor = it.eyeColour,
+                        hairColor = it.hairColour,
+                        actor = it.actor,
                         profileImage = it.image
                     )
                 }
+
             }
 
             if (charactersUiModel != null) {
@@ -74,12 +77,4 @@ class CharactersViewModel(private val charactersModel : CharactersModel) : ViewM
         return charactersUiModelList
     }
 
-    private fun getFormattedDate(dateInput: String) : String {
-        val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
-        val outputFormat = SimpleDateFormat("dd MMM yyyy, hh:mm a", Locale.getDefault())
-
-        val charactersModifiedDate = inputFormat.parse(dateInput)
-
-        return outputFormat.format(charactersModifiedDate)
-    }
 }
