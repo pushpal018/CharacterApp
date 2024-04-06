@@ -5,5 +5,5 @@
 
 # Screenshots
 
-![Screenshot](screenshot1.png)
-![Screenshot](screenshot2.png)
+[alt text](https://github.com/pushpal018/CharacterApp/blob/master/screenshot/screenshot_1.png)
+[alt text](https://github.com/pushpal018/CharacterApp/blob/master/screenshot/screenshot_1.png)
